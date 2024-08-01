@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Apps Hub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f7fa; /* Light cyan background */
+            color: #333;
+        }
+
+        header {
+            background-color: #00796b; /* Teal background */
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
+            margin: 0;
+        }
+
+        .slider {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-height: 400px;
+            margin: 20px 0;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .app-feature, .daily-combos, .tap-codes {
+            background-color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .app-card, .combo-card, .tap-code-card {
+            background-color: #b2dfdb; /* Light teal background */
+            border: 1px solid #80cbc4; /* Darker teal border */
+            border-radius: 8px;
+            margin: 10px;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            width: 30%;
+            box-sizing: border-box;
+            vertical-align: top;
+        }
+
+        .app-card img, .combo-card img {
+            max-width: 100px;
+            margin-bottom: 10px;
+        }
+
+        .call-to-action {
+            background-color: #00796b; /* Teal background */
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #ff6600;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: #00796b; /* Teal background */
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .app-card, .combo-card, .tap-code-card {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Welcome to Crypto Apps Hub</h1>
+            <p>Discover the best cryptocurrency apps and games!</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="slider">
+            <div class="slides">
+                <div class="slide">
+                    <img src="https://via.placeholder.com/1200x400?text=Crypto+Apps+1" alt="Crypto Apps 1">
+                </div>
+                <div class="slide">
+                    <img src="https://via.placeholder.com/1200x400?text=Crypto+Apps+2" alt="Crypto Apps 2">
+                </div>
+                <div class="slide">
+                    <img src="https://via.placeholder.com/1200x400?text=Crypto+Apps+3" alt="Crypto Apps 3">
+                </div>
+            </div>
+        </section>
+
+        <section class="app-feature">
+            <div class="container">
+                <h2>Top Apps</h2>
+                <div class="app-card">
+                    <h3>TapSwap</h3>
+                    <img src="https://via.placeholder.com/150x150?text=TapSwap" alt="TapSwap">
+                    <p>TapSwap is your gateway to seamless cryptocurrency exchanges. Swap your favorite tokens with ease and speed.</p>
+                </div>
+                <div class="app-card">
+                    <h3>AVACOIN</h3>
+                    <img src="https://via.placeholder.com/150x150?text=AVACOIN" alt="AVACOIN">
+                    <p>AVACOIN offers a secure and user-friendly platform for buying, selling, and managing your digital assets.</p>
+                </div>
+                <div class="app-card">
+                    <h3>Hamster Kombat</h3>
+                    <img src="https://via.placeholder.com/150x150?text=Hamster+Kombat" alt="Hamster Kombat">
+                    <p>Join the exciting world of Hamster Kombat, where you can play and earn with your favorite virtual pets.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="daily-combos">
+            <div class="container">
+                <h2>Daily Combos</h2>
+                <div id="daily-combos">
+                    <!-- Daily combos will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section class="tap-codes">
+            <div class="container">
+                <h2>Daily TapSwap Codes</h2>
+                <div id="tap-codes">
+                    <!-- TapSwap codes will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section class="call-to-action">
+            <div class="container">
+                <h2>Get Started Now!</h2>
+                <p>Explore these apps and more to enhance your crypto experience. Download them today and dive into the world of digital finance and gaming.</p>
+                <a href="#download" class="btn">Download Now</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Crypto Apps Hub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        let index = 0;
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        function showSlide(n) {
+            if (n >= totalSlides) {
+                index = 0;
+            } else if (n < 0) {
+                index = totalSlides - 1;
+            } else {
+                index = n;
+            }
+            slides.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        setInterval(() => {
+            showSlide(index + 1);
+        }, 3000);
+
+        // Fetch daily data from JSON file
+        async function loadDailyData() {
+            try {
+                const response = await fetch('data.json');
+                const data = await response.json();
+
+                // Display daily combos
+                const combosContainer = document.getElementById('daily-combos');
+                data.dailyCombos.forEach(combo => {
+                    const comboCard = document.createElement('div');
+                    comboCard.className = 'combo-card';
+                    comboCard.innerHTML = `<h3>${combo.title}</h3><p>${combo.description}</p>`;
+                    combosContainer.appendChild(comboCard);
+                });
+
+                // Display TapSwap codes
+                const codesContainer = document.getElementById('tap-codes');
+                data.tapSwapCodes.forEach(code => {
+                    const codeCard = document.createElement('div');
+                    codeCard.className = 'tap-code-card';
+                    codeCard.innerHTML = `<h3>${code.title}</h3><p>${code.description}</p>`;
+                    codesContainer.appendChild(codeCard);
+                });
+
+            } catch (error) {
+                console.error('Error fetching daily data:', error);
+            }
+        }
+
+        loadDailyData();
+    </script>
+</body>
+</html>
